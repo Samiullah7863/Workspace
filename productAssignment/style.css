@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: changecolor 2s infinite;
+}
+
+@keyframes changecolor {
+  0% {
+    color: red;
+    transform: rotate(0deg);
+  }
+  33% {
+    color: blue;
+    transform: rotate(20deg);
+  }
+  66% {
+    color: green;
+    transform: rotate(-20deg);
+  }
+  100% {
+    color: red;
+    transform: rotate(0deg);
+  }
+  /* from {color: red;} */
+  /* to {color: blue;} */
+}
+
+.product-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 5px;
+  border: 2px solid #4caf50;
+}
+
+.product-item {
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.btn-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.btn {
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.btn-enabled {
+  background-color: #4caf50;
+}
+
+.btn-disabled {
+  background-color: lightgrey !important;
+}
+
+.btn-disabled:hover {
+  background-color: lightgrey !important;
+  padding: 10px 15px !important
+}
+
+.btn:hover {
+  padding: 10px 30px;
+  background-color: lightseagreen;
+  transition: 0.5s ease;
+}
+
+.input-label {
+  font-size: 15px;
+}
