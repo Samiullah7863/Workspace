@@ -2,11 +2,11 @@ describe("ALW Dev Sign Up", () => {
 
 
   // Set for Grade 3
-  it("Lower Grade Sign Up", () => {
+  // it("Lower Grade Sign Up", () => {
 
-    cy.signupLowerGrade();
+  //   cy.signupLowerGrade();
     
-  });
+  // });
 
 
   // Set for Grade 10

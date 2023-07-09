@@ -8,4 +8,7 @@ module.exports = defineConfig({
     baseUrl: 'https://juniper-dev-learn.alw.sa',
     // experimentalSourceRewriting: true
   },
+  env: {
+    server: 'juniper-dev-learn.alw.sa'
+  },
 });

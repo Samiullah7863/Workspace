@@ -1,8 +1,11 @@
+import 'cypress-mailhog';
+
+
 // Command to Login with Email and Password
 Cypress.Commands.add("login", (email, password) => {
   cy.intercept(
     "POST",
-    "https://lms-juniper-dev-learn.alw.sa/api/mentora/auth/alw-login/"
+    "https://lms-" + Cypress.env('server') + "/api/mentora/auth/alw-login/"
   ).as("loginAPI");
 
   cy.visit({ url: "/login", failOnStatusCode: false });
@@ -22,7 +25,7 @@ Cypress.Commands.add("login", (email, password) => {
 Cypress.Commands.add("loginWithNumber", (number) => {
   cy.intercept(
     "POST",
-    "https://lms-juniper-dev-learn.alw.sa/api/mentora/auth/alw-login/"
+    "https://lms-" + Cypress.env('server') + "/api/mentora/auth/alw-login/"
   ).as("loginAPI");
 
   cy.visit({ url: "/login", failOnStatusCode: false });
@@ -30,7 +33,7 @@ Cypress.Commands.add("loginWithNumber", (number) => {
   cy.get(".Login_form-actions__1Ru2I button").click();
   cy.intercept(
     "POST",
-    "https://lms-juniper-dev-learn.alw.sa/api/otp/generate-signin-otp/"
+    "https://lms-" + Cypress.env('server') + "/api/otp/generate-signin-otp/"
   ).as("getOTP");
   cy.wait("@getOTP")
     .then((intercept) => {
@@ -56,17 +59,17 @@ Cypress.Commands.add("signup", () => {
 
   cy.intercept(
     "POST",
-    "https://lms-juniper-dev-learn.alw.sa/api/mentora/auth/validation/alw-registration"
+    "https://lms-" + Cypress.env('server') + "/api/mentora/auth/validation/alw-registration"
   ).as("isNumberUsed");
 
   cy.intercept(
     "POST",
-    "https://lms-juniper-dev-learn.alw.sa/api/otp/generate"
+    "https://lms-" + Cypress.env('server') + "/api/otp/generate"
   ).as("getOTP");
 
   cy.intercept(
     "GET",
-    "https://lms-juniper-dev-learn.alw.sa/api/mentora/auth/v2/user-class-courses/?grade_id=12"
+    "https://lms-" + Cypress.env('server') + "/api/mentora/auth/v2/user-class-courses/?grade_id=12"
   ).as("semesterSubjects");
 
   cy.get(".form-select__control").click();
@@ -125,17 +128,17 @@ Cypress.Commands.add("signupLowerGrade", () => {
 
   cy.intercept(
     "POST",
-    "https://lms-juniper-dev-learn.alw.sa/api/mentora/auth/validation/alw-registration"
+    "https://lms-" + Cypress.env('server') + "/api/mentora/auth/validation/alw-registration"
   ).as("isNumberUsed");
 
   cy.intercept(
     "POST",
-    "https://lms-juniper-dev-learn.alw.sa/api/otp/generate"
+    "https://lms-" + Cypress.env('server') + "/api/otp/generate"
   ).as("getOTP");
 
   cy.intercept(
     "GET",
-    "https://lms-juniper-dev-learn.alw.sa/api/mentora/auth/v2/user-class-courses/?grade_id=4"
+    "https://lms-" + Cypress.env('server') + "/api/mentora/auth/v2/user-class-courses/?grade_id=4"
   ).as("semesterSubjects");
 
   cy.get(".form-select__control").click();
